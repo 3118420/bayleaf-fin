@@ -20,6 +20,10 @@ const Navbar: React.FC = () => {
     { id: 'contact', label: translations.navbar.contact[language] },
   ];
 
+  const handleLanguageToggle = () => {
+    toggleLanguage(language === 'en' ? 'de' : 'en');
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       const offset = window.scrollY;
@@ -77,30 +81,16 @@ const Navbar: React.FC = () => {
               </Link>
             ))}
             
-            {/* Language Toggle */}
-            <div className="flex items-center space-x-2">
-              <Globe size={18} className={scrolled ? 'text-gray-800' : 'text-white'} />
-              <button
-                onClick={() => toggleLanguage('en')}
-                className={`px-2 py-1 rounded-md text-sm transition-colors ${
-                  language === 'en' 
-                    ? 'bg-white text-spice-500 font-bold' 
-                    : `${scrolled ? 'text-gray-800' : 'text-white'} hover:text-spice-500`
-                }`}
-              >
-                EN
-              </button>
-              <button
-                onClick={() => toggleLanguage('de')}
-                className={`px-2 py-1 rounded-md text-sm transition-colors ${
-                  language === 'de' 
-                    ? 'bg-white text-spice-500 font-bold' 
-                    : `${scrolled ? 'text-gray-800' : 'text-white'} hover:text-spice-500`
-                }`}
-              >
-                DE
-              </button>
-            </div>
+            {/* Single Language Toggle Button */}
+            <button
+              onClick={handleLanguageToggle}
+              className={`flex items-center space-x-2 px-3 py-1 rounded-md transition-colors ${
+                scrolled ? 'text-gray-800' : 'text-white'
+              } hover:text-spice-500`}
+            >
+              <Globe size={18} />
+              <span className="font-medium">{language.toUpperCase()}</span>
+            </button>
             
             <a 
               href="#booking" 
@@ -145,32 +135,12 @@ const Navbar: React.FC = () => {
               
               {/* Language Toggle for Mobile */}
               <div className="flex items-center space-x-2 py-2">
-                <Globe size={18} className="text-gray-800" />
                 <button
-                  onClick={() => {
-                    toggleLanguage('en');
-                    closeMenu();
-                  }}
-                  className={`px-2 py-1 rounded-md text-sm transition-colors ${
-                    language === 'en' 
-                      ? 'bg-spice-500 text-white font-bold' 
-                      : 'text-gray-800 hover:text-spice-500'
-                  }`}
+                  onClick={handleLanguageToggle}
+                  className="flex items-center space-x-2 px-3 py-1 rounded-md text-gray-800 hover:text-spice-500 transition-colors"
                 >
-                  EN
-                </button>
-                <button
-                  onClick={() => {
-                    toggleLanguage('de');
-                    closeMenu();
-                  }}
-                  className={`px-2 py-1 rounded-md text-sm transition-colors ${
-                    language === 'de' 
-                      ? 'bg-spice-500 text-white font-bold' 
-                      : 'text-gray-800 hover:text-spice-500'
-                  }`}
-                >
-                  DE
+                  <Globe size={18} />
+                  <span className="font-medium">{language.toUpperCase()}</span>
                 </button>
               </div>
               

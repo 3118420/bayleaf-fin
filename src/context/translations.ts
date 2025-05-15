@@ -1,4 +1,18 @@
 export const translations = {
+  common: {
+    close: {
+      en: 'Close',
+      de: 'Schließen'
+    },
+    continue: {
+      en: 'Continue',
+      de: 'Weiter'
+    },
+    viewMore: {
+      en: 'View More',
+      de: 'Mehr Anzeigen'
+    }
+  },
   navbar: {
     home: {
       en: 'Home',
@@ -75,6 +89,10 @@ export const translations = {
       vegetarian: { en: 'Vegetarian', de: 'Vegetarisch' },
       spiceLevel: { en: 'Spice Level', de: 'Schärfegrad' },
       chefsSpecial: { en: "Chef's Special", de: 'Empfehlung des Küchenchefs' }
+    },
+    viewFullMenu: {
+      en: 'View Full Menu',
+      de: 'Vollständige Speisekarte'
     }
   },
   gallery: {

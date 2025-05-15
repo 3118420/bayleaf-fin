@@ -1,8 +1,10 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-scroll';
 import { Menu, ChevronDown } from 'lucide-react';
 import { MenuItem } from '../../types';
+import { useLanguage } from '../../context/LanguageContext';
+import { translations } from '../../context/translations';
 
 const menuData: MenuItem[] = [
   {
@@ -40,6 +42,7 @@ const menuData: MenuItem[] = [
 ];
 
 const MenuSection: React.FC = () => {
+  const { language } = useLanguage();
   const categories = ["all", "starters", "mains", "desserts", "drinks"];
   const [activeCategory, setActiveCategory] = useState("all");
   const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null);
@@ -54,7 +57,6 @@ const MenuSection: React.FC = () => {
   return (
     <section id="menu" className="relative py-24 bg-cream-50">
       <div className="container mx-auto px-4 relative z-10">
-        {/* Section Header */}
         <div ref={textRef} className="text-center mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -64,7 +66,9 @@ const MenuSection: React.FC = () => {
             className="flex items-center justify-center mb-4"
           >
             <Menu className="mr-2 text-spice-600" size={20} />
-            <span className="uppercase tracking-widest text-sm text-spice-600">Explore Our Dishes</span>
+            <span className="uppercase tracking-widest text-sm text-spice-600">
+              {translations.menu.subtitle[language]}
+            </span>
           </motion.div>
 
           <motion.h2
@@ -74,21 +78,10 @@ const MenuSection: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
           >
-            Our Menu
+            {translations.menu.title[language]}
           </motion.h2>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto mb-8 leading-relaxed"
-          >
-            Discover the rich and diverse flavors of South India through our carefully crafted menu.
-          </motion.p>
         </div>
 
-        {/* Category Buttons */}
         <motion.div
           className="flex justify-center flex-wrap gap-4 my-12"
           initial={{ opacity: 0 }}
@@ -111,12 +104,11 @@ const MenuSection: React.FC = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.3, delay: index * 0.1 }}
             >
-              {category}
+              {translations.menu.categories[category][language]}
             </motion.button>
           ))}
         </motion.div>
 
-        {/* Menu Grid */}
         <div 
           ref={menuRef}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
@@ -141,12 +133,12 @@ const MenuSection: React.FC = () => {
                   />
                   {item.isVegetarian && (
                     <span className="absolute top-3 left-3 bg-leaf-500 text-white text-xs px-2 py-1 rounded-full">
-                      Vegetarian
+                      {translations.menu.labels.vegetarian[language]}
                     </span>
                   )}
                   {item.isSpecial && (
                     <span className="absolute top-3 right-3 bg-chili-600 text-white text-xs px-2 py-1 rounded-full">
-                      Chef's Special
+                      {translations.menu.labels.chefsSpecial[language]}
                     </span>
                   )}
                 </div>
@@ -157,7 +149,9 @@ const MenuSection: React.FC = () => {
                   </div>
                   <p className="text-gray-600 text-sm mb-2">{item.description}</p>
                   <div className="flex items-center gap-2">
-                    <span className="text-xs text-gray-500">Spice:</span>
+                    <span className="text-xs text-gray-500">
+                      {translations.menu.labels.spiceLevel[language]}:
+                    </span>
                     {[...Array(3)].map((_, i) => (
                       <span
                         key={i}
@@ -173,7 +167,6 @@ const MenuSection: React.FC = () => {
           </AnimatePresence>
         </div>
 
-        {/* CTA Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -189,7 +182,7 @@ const MenuSection: React.FC = () => {
             duration={800}
             className="btn-primary mr-4"
           >
-            Book a Table
+            {translations.hero.bookTable[language]}
           </Link>
           <Link
             to="contact"
@@ -199,11 +192,10 @@ const MenuSection: React.FC = () => {
             duration={800}
             className="btn-outline"
           >
-            View Full Menu
+            {translations.menu.viewFullMenu[language]}
           </Link>
         </motion.div>
 
-        {/* Scroll Down Indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center z-10">
           <div className="scroll-indicator">
             <div className="scroll-indicator-progress" />
@@ -216,13 +208,14 @@ const MenuSection: React.FC = () => {
             duration={800}
             className="text-gray-600 flex flex-col items-center cursor-pointer hover:text-spice-600 transition-colors"
           >
-            <span className="text-sm uppercase tracking-wider mb-2">Continue</span>
+            <span className="text-sm uppercase tracking-wider mb-2">
+              {translations.common.continue[language]}
+            </span>
             <ChevronDown size={20} />
           </Link>
         </div>
       </div>
 
-      {/* Modal */}
       <AnimatePresence>
         {selectedItem && (
           <motion.div
@@ -248,8 +241,15 @@ const MenuSection: React.FC = () => {
                 <h3 className="text-2xl font-display mb-2">{selectedItem.name}</h3>
                 <p className="text-gray-600 mb-4">{selectedItem.description}</p>
                 <div className="flex justify-between items-center">
-                  <span className="text-xl font-medium text-spice-600">€{selectedItem.price.toFixed(2)}</span>
-                  <button className="btn-primary" onClick={() => setSelectedItem(null)}>Close</button>
+                  <span className="text-xl font-medium text-spice-600">
+                    €{selectedItem.price.toFixed(2)}
+                  </span>
+                  <button 
+                    className="btn-primary" 
+                    onClick={() => setSelectedItem(null)}
+                  >
+                    {translations.common.close[language]}
+                  </button>
                 </div>
               </div>
             </motion.div>

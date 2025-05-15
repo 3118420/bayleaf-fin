@@ -69,6 +69,105 @@ export const translations = {
       de: 'Nach Unten Scrollen'
     }
   },
+  about: {
+    title: {
+      en: 'Our Story',
+      de: 'Unsere Geschichte'
+    },
+    subtitle: {
+      en: 'Our Heritage',
+      de: 'Unser Erbe'
+    },
+    description: {
+      en: 'From the vibrant streets of Chennai to the heart of Germany, we bring authentic South Indian flavors with a passion for tradition and quality.',
+      de: 'Von den lebhaften Straßen Chennais bis ins Herz Deutschlands bringen wir authentische südindische Aromen mit einer Leidenschaft für Tradition und Qualität.'
+    },
+    legacy: {
+      title: {
+        en: 'A Legacy of Flavor & Tradition',
+        de: 'Ein Vermächtnis von Geschmack & Tradition'
+      },
+      story: {
+        en: 'Our journey began in the bustling streets of Chennai, where our founder Chef Rajan learned the art of South Indian cuisine from his grandmother. Every morning, they would visit the local spice markets, selecting the finest ingredients for their family restaurant.',
+        de: 'Unsere Reise begann in den geschäftigen Straßen von Chennai, wo unser Gründer Chef Rajan von seiner Großmutter die Kunst der südindischen Küche erlernte. Jeden Morgen besuchten sie die lokalen Gewürzmärkte und wählten die feinsten Zutaten für ihr Familienrestaurant aus.'
+      },
+      continuation: {
+        en: 'Today, we continue this tradition in Germany, importing our spices directly from trusted farmers in South India. Our dishes are a testament to the rich culinary heritage of South India, prepared with authentic recipes that have been perfected over generations.',
+        de: 'Heute führen wir diese Tradition in Deutschland fort und importieren unsere Gewürze direkt von vertrauenswürdigen Bauern in Südindien. Unsere Gerichte sind ein Zeugnis des reichen kulinarischen Erbes Südindiens, zubereitet mit authentischen Rezepten, die über Generationen perfektioniert wurden.'
+      }
+    },
+    features: {
+      ingredients: {
+        title: {
+          en: 'Authentic Ingredients',
+          de: 'Authentische Zutaten'
+        },
+        description: {
+          en: 'We import spices directly from South India, ensuring the most authentic and fresh flavors in every dish we serve.',
+          de: 'Wir importieren Gewürze direkt aus Südindien und garantieren so die authentischsten und frischesten Aromen in jedem Gericht.'
+        }
+      },
+      recipes: {
+        title: {
+          en: 'Traditional Recipes',
+          de: 'Traditionelle Rezepte'
+        },
+        description: {
+          en: 'Our recipes have been passed down through generations, preserving the authentic methods and techniques of South Indian cooking.',
+          de: 'Unsere Rezepte wurden über Generationen weitergegeben und bewahren die authentischen Methoden und Techniken der südindischen Küche.'
+        }
+      },
+      ambiance: {
+        title: {
+          en: 'Modern Ambiance',
+          de: 'Moderne Atmosphäre'
+        },
+        description: {
+          en: 'Experience the perfect blend of traditional South Indian hospitality with modern German elegance in our thoughtfully designed space.',
+          de: 'Erleben Sie die perfekte Mischung aus traditioneller südindischer Gastfreundschaft und moderner deutscher Eleganz in unserem durchdacht gestalteten Raum.'
+        }
+      }
+    },
+    stats: {
+      experience: {
+        number: '15',
+        label: {
+          en: 'Years of Experience',
+          de: 'Jahre Erfahrung'
+        },
+        subtext: {
+          en: 'Since 2010',
+          de: 'Seit 2010'
+        }
+      },
+      recipes: {
+        number: '50',
+        label: {
+          en: 'Authentic Recipes',
+          de: 'Authentische Rezepte'
+        },
+        subtext: {
+          en: 'Traditional dishes',
+          de: 'Traditionelle Gerichte'
+        }
+      },
+      customers: {
+        number: '1000',
+        label: {
+          en: 'Happy Customers',
+          de: 'Zufriedene Kunden'
+        },
+        subtext: {
+          en: 'Monthly',
+          de: 'Monatlich'
+        }
+      }
+    },
+    cta: {
+      en: 'Discover Our Menu',
+      de: 'Entdecken Sie Unser Menü'
+    }
+  },
   menu: {
     title: {
       en: 'Our Menu',
